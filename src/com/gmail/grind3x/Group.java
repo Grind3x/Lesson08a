@@ -1,3 +1,5 @@
+package com.gmail.grind3x;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -200,7 +202,7 @@ public class Group implements Commissar, Serializable {
 
     @Override
     public String toString() {
-        String retVal = "Список студентов:" + '\n';
+        String retVal = "Группа " + name + ':' + '\n';
         for (Student st : studentArr) {
             retVal += (st + "\n");
         }

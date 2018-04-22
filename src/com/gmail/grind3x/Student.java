@@ -1,3 +1,5 @@
+package com.gmail.grind3x;
+
 import java.io.Serializable;
 import java.util.Objects;
 

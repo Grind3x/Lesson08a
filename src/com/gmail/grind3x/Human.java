@@ -1,4 +1,8 @@
-public class Human {
+package com.gmail.grind3x;
+
+import java.io.Serializable;
+
+public class Human implements Serializable {
     private String firstName;
     private String secondName;
     private int age;
@@ -48,7 +52,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "com.gmail.grind3x.Human{" +
                 "firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", age=" + age +

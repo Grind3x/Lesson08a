@@ -1,3 +1,13 @@
+package com.gmail.grind3x;
+
+import com.gmail.grind3x.Controller.DataBaseController;
+import com.gmail.grind3x.Controller.GroupController;
+import com.gmail.grind3x.DAO.DataBaseDAO;
+import com.gmail.grind3x.DAO.GroupDAO;
+import com.gmail.grind3x.DAO.Impl.DataBaseDAOFileImplementation;
+import com.gmail.grind3x.DAO.Impl.GroupDAODataBaseImplementation;
+import com.gmail.grind3x.DAO.Impl.GroupDAOJsonFileImplementation;
+
 public class Main {
     public static void main(String[] args) {
         Group group = new Group("A-21");
@@ -24,11 +34,21 @@ public class Main {
         group.addStudent(stNine);
         group.addStudent(stTen);
 
-        GroupFileDao gfd = new GroupFileDao();
-        gfd.saveGroup(group);
+        GroupDAO groupDaoJson = new GroupDAOJsonFileImplementation();
+        GroupController controllerOne = new GroupController(groupDaoJson);
+        controllerOne.saveGroup(group);
+        System.out.println(controllerOne.loadGroupByName("A-21"));
+        DataBase db = new DataBase();
+        GroupDAO groupDaoDataBase = new GroupDAODataBaseImplementation(db);
+        GroupController controllerTwo = new GroupController(groupDaoDataBase);
+        controllerTwo.saveGroup(group);
+        System.out.println(db);
 
-        System.out.println(gfd.loadGroupByName("A-21"));
-
+        DataBaseDAO dbDao = new DataBaseDAOFileImplementation();
+        DataBaseController dbController = new DataBaseController(dbDao);
+        dbController.saveDataBase(db);
+        DataBase dbTwo = dbController.loadDataBaseByName("Base#1");
+        System.out.println(dbTwo);
         }
 
     }
