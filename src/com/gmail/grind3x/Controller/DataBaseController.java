@@ -4,7 +4,7 @@ import com.gmail.grind3x.DAO.DataBaseDAO;
 import com.gmail.grind3x.DataBase;
 
 public class DataBaseController {
-    DataBaseDAO dataBaseDAO;
+    private DataBaseDAO dataBaseDAO;
 
     public DataBaseController(DataBaseDAO dataBaseDAO) {
         this.dataBaseDAO = dataBaseDAO;

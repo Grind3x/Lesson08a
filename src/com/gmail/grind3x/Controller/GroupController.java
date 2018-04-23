@@ -4,7 +4,7 @@ import com.gmail.grind3x.DAO.GroupDAO;
 import com.gmail.grind3x.Group;
 
 public class GroupController {
-    GroupDAO groupDAO;
+    private GroupDAO groupDAO;
 
     public GroupController(GroupDAO groupDAO) {
         this.groupDAO = groupDAO;
